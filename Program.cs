@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Globalization;
 
 namespace SO
@@ -11,6 +11,10 @@ namespace SO
             DateTime start = new DateTime(2020, 1, 2); // 2 January 2020
             DateTime end = new DateTime(2020, 3, 4); // 4 March 2020
 
+            if (start.Year == end.Year && start.Month == end.Month) {
+                var daysInSingleMonth = end.Day - start.Day;
+                Console.WriteLine(start.ToString("MMM", culture) + " (Single Month): " + daysInSingleMonth.ToString("00"));
+            } else {
             var daysInFirstMonth = DateTime.DaysInMonth(start.Year, start.Month) - start.Day;
             Console.WriteLine(start.ToString("MMM", culture) + " (First Month): " + daysInFirstMonth.ToString("00"));  
 
